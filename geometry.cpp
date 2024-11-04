@@ -4,6 +4,7 @@ using namespace std;
 const double EPS = 1e-9;
 const double PI = acos(-1.0);
 typedef double T;
+using ll = long long;
 
 struct Point {
   T x;
@@ -363,6 +364,15 @@ T areaPolygon(vector<Point> pts) {
   return abs(area) / 2.0;
 } 
 
+ll areaPolygonLong(vector<Point> pts) {
+  ll area = 0;
+  for (int i=0,n=pts.size();i<n;i++) {
+    area += (ll)pts[i].x*(ll)pts[(i+1)%n].y;
+    area -= (ll)pts[i].y*(ll)pts[(i+1)%n].x;  
+  }
+  return abs(area);
+}
+
 bool above(Point a, Point p) {
   return p.y >= a.y;
 }
@@ -388,6 +398,30 @@ bool inPolygon(
   return numCrossings & 1;
 }
 
+ll pointsBoundary(vector<Point> &pts) {
+  ll boundary = 0;
+  int n = (int)pts.size();
+  for (int i=0;i<n;i++) {
+    if (pts[(i+1)%n].x == pts[i].x) 
+      boundary += 
+        abs((ll)pts[(i+1)%n].y-(ll)pts[i].y);
+    else if (pts[(i+1)%n].y == pts[i].y)
+      boundary += 
+        abs((ll)pts[(i+1)%n].x-(ll)pts[i].x);
+    else boundary += __gcd(
+      abs((ll)pts[(i+1)%n].x - (ll)pts[i].x),
+      abs((ll)pts[(i+1)%n].y - (ll)pts[i].y)
+    );
+  }
+  return boundary;
+}
+
+pair<ll,ll> latticePoints(vector<Point> ps) {
+  ll area = areaPolygonLong(ps);
+  ll boundary = pointsBoundary(ps);
+  ll interior = (area+2ll-boundary)/2ll;
+  return {interior, boundary};
+}
 struct Circle {
   static Point circumCenter(
     Point a, Point b, Point c
@@ -409,4 +443,13 @@ T deg2rad(T angle) {
 T rad2deg(T angle) {
   angle *= 360.0/(2.0*PI);
   return angle;
+}
+
+int main() {
+  int n;
+  cin>>n;
+  vector<Point> pts(n);
+  for(auto& i:pts) cin>>i.x>>i.y;
+  auto pts2 = latticePoints(pts);
+  cout<<pts2.first<<" "<<pts2.second<<"\n";
 }
