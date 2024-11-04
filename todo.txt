@@ -5,3 +5,7 @@
 * DP techniques
 * math formules
 * complete todo list
+
+* Add Treap
+* Add Wavelet tree
+* Add persistent seg tree
