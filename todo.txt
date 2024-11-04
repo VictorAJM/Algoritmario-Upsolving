@@ -1,0 +1,7 @@
+* Add FFT, NTT
+* Add string algorithms
+* Graph algorithms
+* DS algorithms
+* DP techniques
+* math formules
+* complete todo list
