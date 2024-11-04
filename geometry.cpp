@@ -45,8 +45,16 @@ struct Point {
     return sqrt(dx*dx + dy*dy);
   } 
 
+  static ll sqhypot(ll dx, ll dy) {
+    return dx*dx + dy*dy;
+  } 
+
   T dist(Point other) {
     return hypot(x - other.x, y - other.y);
+  }
+
+  ll sqdist(Point other) {
+    return sqhypot(x - other.x, y - other.y);
   }
 
   static T abs(Point other) {
@@ -445,11 +453,33 @@ T rad2deg(T angle) {
   return angle;
 }
 
-int main() {
-  int n;
-  cin>>n;
-  vector<Point> pts(n);
-  for(auto& i:pts) cin>>i.x>>i.y;
-  auto pts2 = latticePoints(pts);
-  cout<<pts2.first<<" "<<pts2.second<<"\n";
+ll minDistancePoints(vector<Point> pts) {
+  sort(pts.begin(), pts.end());
+  ll minDistance = LLONG_MAX;
+  set<Point> active; 
+  active.insert({pts[0].y, pts[0].x});
+  int j = 0;
+  for (int i=1;i<pts.size();i++) {
+    auto it = active.begin();
+    ll dd = ceil(sqrt(minDistance));
+    while (j<i && pts[j].x < pts[i].x-dd) {
+      active.erase({pts[j].y, pts[j].x});
+      j++;
+    }
+    auto lb = active.lower_bound({
+      pts[i].y - dd, 0
+    });
+    auto ub = active.upper_bound({
+      pts[i].y + dd, 0
+    });
+
+    for (auto it = lb; it != ub;it++) {
+      minDistance = min(
+        minDistance,
+        Point(it->y,it->x).sqdist(pts[i])
+      );
+    }
+    active.insert({pts[i].y, pts[i].x});
+  }
+  return minDistance;
 }
