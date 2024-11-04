@@ -199,12 +199,14 @@ void polarSort(vector<Point> &v) {
   }); 
 }
 
-void polarSortAround(Point o, vector<Point> &v) 
+void polarSortAround(
+  Point o, vector<Point> &v
+  ) 
 {
   sort(v.begin(), v.end(), [=](
     Point v, Point w
     ) {
-    return make_tuple(Point(v-o).half(), 0) < 
+    return make_tuple(Point(v-o).half(), 0)< 
           make_tuple(Point(w-o).half(), 
           Point::cross(v-o, w-o));
   });
@@ -266,11 +268,13 @@ struct Line {
 
   Point refl(Point p) {
     return 
-      p - 
-      Point::perp(v)*2.0*side(p)/Point::sq(v);
+    p - 
+    Point::perp(v)*2.0*side(p)/Point::sq(v);
   }
 
-  Line bisector(Line l1, Line l2, bool interior) {
+  Line bisector(
+    Line l1, Line l2, bool interior
+    ) {
     assert(Point::cross(l1.v, l2.v) != 0);
     T sign = interior ? 1.0 : -1.0;
     return 
@@ -367,7 +371,7 @@ T areaTriangle(Point a, Point b, Point c) {
 T areaPolygon(vector<Point> pts) {
   T area = 0.0;
   for (int i=0,n=pts.size();i<n;i++) {
-    area += Point::cross(pts[i],pts[(i+1)%n]);
+    area+=Point::cross(pts[i],pts[(i+1)%n]);
   }
   return abs(area) / 2.0;
 } 
