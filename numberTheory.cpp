@@ -4,10 +4,10 @@ int phi[N];
 void totient() {
   for (int i=1;i<N;i++) phi[i]=i;
   for (int i=2;i<N;i++) {
-	  if (phi[i]==i) {
-  	  for (int j=i;j<N;j+=i)
-        phi[j]-=phi[j]/i;
-	  }
+    if (phi[i]==i) {
+      for (int j=i;j<N;j+=i)
+      phi[j]-=phi[j]/i;
+    }
   }
 }
 
@@ -15,8 +15,8 @@ void totient() {
 using ll = long long;
 ll extended(ll a,ll b,ll &x,ll &y) {
   if (b==0) {
-	x = 1; y = 0;
-	return a;
+    x = 1; y = 0;
+    return a;
   }
   ll x1, y1;
   ll d = extended(b,a%b,x1,y1);
@@ -48,6 +48,6 @@ int mb(){
         if(j%i) m[i*j]=m[i]*m[j];
         else m[i*j] = 0;
       }
-    }   
+    }
   }
 }

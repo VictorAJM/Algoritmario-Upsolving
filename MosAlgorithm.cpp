@@ -16,11 +16,11 @@ void mos(){
 	int l=0,r=0;
 	init();
 	fore(i,0,nq){
-    qu q=qs[i];
-    while(l>q.l)add(--l);
-    while(r<q.r)add(r++);
-    while(l<q.l)remove(l++);
-    while(r>q.r)remove(--r);
-    ans[q.id]=get_ans();
+		qu q=qs[i];
+		while(l>q.l)add(--l);
+		while(r<q.r)add(r++);
+		while(l<q.l)remove(l++);
+		while(r>q.r)remove(--r);
+		ans[q.id]=get_ans();
 	}
 }

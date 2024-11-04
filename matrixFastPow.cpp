@@ -7,14 +7,14 @@ Matrix ones(int n) {
 }
 Matrix operator*(Matrix &a, Matrix &b) {
 	int n=a.size(),m=b[0].size();
-  int z=a[0].size();
+	int z=a[0].size();
 	Matrix r(n,vector<ll>(m));
 	for(int i=0; i<n; i++)
-    for(int j=0; j<m; j++)
-	    for(int k = 0; k<z; k++) {
-        r[i][j]+=a[i][k]*b[k][j];
-        r[i][j]%=mod;
-      }
+		for(int j=0; j<m; j++)
+			for(int k = 0; k<z; k++) {
+				r[i][j]+=a[i][k]*b[k][j];
+				r[i][j]%=mod;
+			}
 	return r;
 }
 
