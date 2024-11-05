@@ -1,8 +1,9 @@
+#define ll long long
 #define pq priority_queue
 #define vec vector
 #define pb push_back
 #define SZ(a) (int)a.size()
-#define ALL(a) a.begin(),a.end()
+#define all(a) a.begin(),a.end()
 typedef ll tf;
 typedef ll tc;
 const tf INFFLOW=1e9;
@@ -32,7 +33,7 @@ struct MCF{
     tf flow=0; tc flowcost=0;
     while(1){
       q.push({0, s});
-      fill(ALL(prio),INFCOST);
+      fill(all(prio),INFCOST);
       prio[s]=0; curflow[s]=INFFLOW;
       while(!q.empty()) {
         auto cur=q.top();
@@ -56,7 +57,7 @@ struct MCF{
         }
       }
       if(prio[t]==INFCOST) break;
-      fore(i,0,n) pot[i]+=prio[i];
+      for(int i=0;i<n;i++) pot[i]+=prio[i];
       tf df=min(curflow[t], INFFLOW-flow);
       flow+=df;
       for(int v=t; v!=s; v=prevnode[v]) {
