@@ -1,9 +1,9 @@
 int n = 20;
 vector<int> a(1 << n);
 
-// keeps track of the sum over subsets
-// with a certain amount of matching bits in the prefix
-vector<vector<int>> dp(1 << n, vector<int>(n));
+//keeps track of the sum over subsets with a
+//certain amount of matching bits in the pref
+vector<vector<int>> dp(1<<n,vector<int>(n));
 
 vector<int> sos(1 << n);
 for (int mask = 0; mask < (1 << n); mask++) {
