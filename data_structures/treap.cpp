@@ -1,4 +1,6 @@
 // BST Implementation (Treap)
+#define f first
+#define s second
 typedef struct node *pnode;
 struct node {
 	int pr,key,cnt;
@@ -40,6 +42,7 @@ void erase(pnode& t, int key){
 	else erase(key<t->key?t->l:t->r,key);
 	upd_cnt(t);
 }
+// Union of 2 diff treaps
 void unite(pnode &t, pnode l, pnode r){
 	if(!l||!r){t=l?l:r;return;}
 	if(l->pr<r->pr)swap(l,r);
@@ -47,6 +50,7 @@ void unite(pnode &t, pnode l, pnode r){
 	unite(l->l,l->l,p1);unite(l->r,l->r,p2);
 	t=l;upd_cnt(t);
 }
+// K-th largest node by value
 pnode kth(pnode t, int k){
 	if(!t)return 0;
 	if(k==cnt(t->l))return t;
@@ -59,11 +63,10 @@ pair<int,int> lb(pnode t, int key){
 	if(!t)return {0,1<<30}; // (special value)
 	if(key>t->key){
 		auto w=lb(t->r,key);
-    w.fst+=cnt(t->l)+1;
+    w.f+=cnt(t->l)+1;
     return w;
 	}
 	auto w=lb(t->l,key);
-	if(w.fst==cnt(t->l))w.snd=t->key;
+	if(w.f==cnt(t->l))w.s=t->key;
 	return w;
 }
-// TO DO: Add union operation
