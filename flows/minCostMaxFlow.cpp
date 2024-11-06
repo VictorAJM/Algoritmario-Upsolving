@@ -4,6 +4,8 @@
 #define pb push_back
 #define SZ(a) (int)a.size()
 #define all(a) a.begin(),a.end()
+#define f first
+#define s second
 typedef ll tf;
 typedef ll tc;
 const tf INFFLOW=1e9;
@@ -37,8 +39,8 @@ struct MCF{
       prio[s]=0; curflow[s]=INFFLOW;
       while(!q.empty()) {
         auto cur=q.top();
-        tc d=cur.fst;
-        int u=cur.snd;
+        tc d=cur.f;
+        int u=cur.s;
         q.pop();
         if(d!=prio[u]) continue;
         for(int i=0;i<SZ(g[u]); ++i) {
