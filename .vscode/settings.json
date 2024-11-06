@@ -6,6 +6,8 @@
         "editor.tabSize": 2
   },
   "files.associations": {
-    "type_traits": "cpp"
+    "type_traits": "cpp",
+    "xstring": "cpp",
+    "xutility": "cpp"
   }
 }
