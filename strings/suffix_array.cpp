@@ -9,17 +9,14 @@ const long long p = 257;
 
 
 long long pot(long long x, long long v){
-	if(v==0) return 1; 
+  if(v==0) return 1;
     if(v==1) return x;
     long long y = pot(x,v/2); y=(y*y)%P; 
     return ((v&1 ? (y*x)%P : y));
 }
-
-
 const int lmt = 1e5+5; 
 int sp[30][lmt];
 int main(){
-
   int n; cin>>n;
   vector<pair<string, int>> s(n);
   for(int i = 0; i < n; i++){
@@ -32,7 +29,6 @@ int main(){
   for(int i = 1; i <= n; i++){
     POW[i] = (POW[i-1]*p)%P;
   }
-  
   for(int i = 0; i < n; i++){
     long long D = 0;
     for(int j = 0; j < s[i].F.sz; j++){

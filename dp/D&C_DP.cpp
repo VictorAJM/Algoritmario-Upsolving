@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 #define ll long long
 #define vec vector
@@ -14,7 +13,6 @@ vec<vec<ll>> calc(2 * N, vec<ll>(N + 1, 0));
 
 //answer for doors 0,1,.., j and i doors open
 vec<vec<ll>> dp(K+1,vec<ll>(N+1, INT64_MAX));
-
 int rot;
 
 void compdp(

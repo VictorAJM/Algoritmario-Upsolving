@@ -70,5 +70,4 @@ void findLongestPalindromicString(string text)
 
 //start=(maxLPSCenterPosition-maxLPSLength)/2; 
 //end=start + maxLPSLength - 1; 
-
 } 

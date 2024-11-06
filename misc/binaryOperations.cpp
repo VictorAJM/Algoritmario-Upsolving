@@ -1,4 +1,3 @@
-
 // count bits in n
 #define bits(n) (int)__builtin_popcount(n)
 

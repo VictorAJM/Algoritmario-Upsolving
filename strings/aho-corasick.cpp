@@ -56,5 +56,3 @@ int go(int v, char ch) {
 // Encontrar la cadena mas corta que contenga
 // a todas las cadenas. Debemos obtener la 
 // suma de 2^n-1
-
-

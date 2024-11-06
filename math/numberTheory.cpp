@@ -1,4 +1,3 @@
-
 // Phi function
 int phi[N];
 void totient() {
@@ -30,7 +29,6 @@ ll inverse(ll a, ll m) {
   if (g != 1) return -1;
   return (x % m + m) % m;
 }
-
 
 // Mobius inversion
 //f(1) = 1

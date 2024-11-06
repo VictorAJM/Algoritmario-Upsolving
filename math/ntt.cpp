@@ -1,4 +1,3 @@
-
 const int N=(1<<21)+5;
 int a[N],b[N],r[N],w[N],mod,n,ninv;
 void init(int _n,int g,int _mod){
@@ -66,4 +65,3 @@ void solve(int an, int bn, int mod){
   }
   rep(i,0,n) a[i]=garner(ans[i],mod);
 }
-
