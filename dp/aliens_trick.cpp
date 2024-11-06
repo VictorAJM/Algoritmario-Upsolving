@@ -39,7 +39,8 @@ you can create
       lo = mid : hi = mid - 1;
   }
 
-  cout << solve_lambda(lo).first + lo * k << endl;
+  cout << solve_lambda(lo).first + lo * k 
+    << endl;
 }
 /* The problem gives us a length N
 (1 <N< 3*10^5) array of integers in the range 
