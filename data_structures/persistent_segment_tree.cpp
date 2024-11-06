@@ -7,7 +7,6 @@ int roots[N], curr = 1;
 struct Node{ ll val; int l, r; };
 Node st[22*N];
 const int NEUT = 0;
-
 int build(int l, int r, vll &a){
   if (l == r){
     st[++curr].val=(l<=a.size())?a[l-1]:NEUT;
@@ -21,7 +20,6 @@ int build(int l, int r, vll &a){
   st[p].val=st[st[p].l].val+st[st[p].r].val;
   return p;
 }
-
 int update(int i,int l,int r,int k,ll x){
   if (l == r){
     st[++curr].val = x; return curr;
@@ -41,7 +39,6 @@ int update(int i,int l,int r,int k,ll x){
   st[p].val=st[st[p].l].val+st[st[p].r].val;
   return p;
 }
-
 ll query(int i,int l,int r,int tl,int tr){
   if (l > tr || r < tl) return NEUT;
   if (tl <= l && r <= tr) return st[i].val;

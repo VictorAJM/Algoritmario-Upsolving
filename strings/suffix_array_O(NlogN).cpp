@@ -1,7 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> sort_cyclic_shifts(string const& s) {
+vector<int> sort_cyclic_shifts(
+  string const& s) {
   int n = s.size();
   const int alphabet = 256;
   vector<int> p(n), c(n);
@@ -26,7 +27,7 @@ vector<int> sort_cyclic_shifts(string const& s) {
         if (pn[i] < 0)
             pn[i] += n;
     }
-    fill(cnt.begin(), cnt.begin() + classes, 0);
+    fill(cnt.begin(), cnt.begin()+classes,0);
     for (int i = 0; i < n; i++)
         cnt[c[pn[i]]]++;
     for (int i = 1; i < classes; i++)
