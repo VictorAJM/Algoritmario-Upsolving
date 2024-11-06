@@ -2,6 +2,14 @@
 // count bits in n
 #define bits(n) (int)__builtin_popcount(n)
 
+// Number of leading zeros
+__builtin_clz(x)   // for int
+__builtin_clzll(x) // for long long
+// Number of trailing zeros
+__builtin_ctz(x)    // for int
+__builtin_ctzll(x)  // for long long
+// Returns 1+the index of lsb of x
+__builtin_ffs(x)
 
 // pragma next to include, similar to O(1)
 #pragma GCC target("popcnt")
