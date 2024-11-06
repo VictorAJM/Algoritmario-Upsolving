@@ -12,7 +12,6 @@ typedef tree<
 // Count of elements strictly smaller:
 //  > st.order_of_key(x)
 
-
 // Multi-set
 typedef tree<
   int, null_type,

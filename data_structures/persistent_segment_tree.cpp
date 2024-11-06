@@ -1,6 +1,5 @@
 #define ll long long
 #define vll vector<ll>
-
 // Persistent seg tree set for min querrys
 const int N = 2e5+5;
 int roots[N], curr = 1;
